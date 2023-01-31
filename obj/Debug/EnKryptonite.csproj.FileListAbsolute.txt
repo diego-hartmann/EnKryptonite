@@ -4,3 +4,9 @@ C:\Projetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.csproj.AssemblyRefer
 C:\Projetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.csproj.CoreCompileInputs.cache
 C:\Projetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.dll
 C:\Projetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.pdb
+C:\MeusProjetos\libs\csharp\EnKryptonite\bin\Debug\EnKryptonite.dll
+C:\MeusProjetos\libs\csharp\EnKryptonite\bin\Debug\EnKryptonite.pdb
+C:\MeusProjetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.csproj.AssemblyReference.cache
+C:\MeusProjetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.csproj.CoreCompileInputs.cache
+C:\MeusProjetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.dll
+C:\MeusProjetos\libs\csharp\EnKryptonite\obj\Debug\EnKryptonite.pdb
