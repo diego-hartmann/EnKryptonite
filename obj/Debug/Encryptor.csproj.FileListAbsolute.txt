@@ -1,0 +1,6 @@
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\bin\Debug\Encryptor.dll
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\bin\Debug\Encryptor.pdb
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\Encryptor.csproj.AssemblyReference.cache
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\Encryptor.csproj.CoreCompileInputs.cache
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\Encryptor.dll
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\Encryptor.pdb

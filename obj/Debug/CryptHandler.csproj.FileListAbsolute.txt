@@ -1,0 +1,6 @@
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\bin\Debug\CryptHandler.dll
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\bin\Debug\CryptHandler.pdb
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\CryptHandler.csproj.AssemblyReference.cache
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\CryptHandler.csproj.CoreCompileInputs.cache
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\CryptHandler.dll
+C:\Users\Diego Hartmann\source\repos\CSharpProject\Cryptography\obj\Debug\CryptHandler.pdb
