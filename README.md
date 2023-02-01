@@ -1,4 +1,4 @@
-﻿# EnKryptonite 🔐
+﻿# EnKryptonite 🔐📄
 ## 1. [Download](https://github.com/dieg0hartmann/EnKryptonite/raw/main/bin/Debug/EnKryptonite.dll) the .dll
 1. C# library to easy encryptation and decryptation of text.
 2. This lib was created through reference from this EVERTON JOSÉ BENEDICTO's [article](http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx)
