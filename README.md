@@ -8,7 +8,7 @@
 
 ## 2. Import the namespace
 ```cs
-using EnKryptor;
+using EnKryptonite;
 ```
 
 ## 3. Encryptor type
