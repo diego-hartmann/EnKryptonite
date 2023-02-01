@@ -5,11 +5,10 @@ using System.IO;
 
 namespace EnKryptonite
 {
-
-    // I got reference from Everton JOSÉ BENEDICTO and his article on http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx
-    
+    // Reference from EVERTON JOSÉ BENEDICTO's article: http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx
     public class Encryptor {
 
+      
         #region =================== PRIVATE FILEDS ====================
         private SymmetricAlgorithm algorithm;
         private EncryptorProvider encryptorProvider;
@@ -18,6 +17,31 @@ namespace EnKryptonite
 
 
         #region =================== PRIVATE METHODS ===================
+        /// <summary>Constructor helper to modulate the logic.</summary>
+        /// <param name="secretKey">The key received from constructor.</param>
+        /// <param name="_cryptProvider">The provider received from constructor</param>
+        private void EncryptorConstructor(string secretKey, EncryptorProvider _cryptProvider)
+        {
+            this.key = secretKey;
+            this.encryptorProvider = _cryptProvider;
+            this.algorithm.Mode = CipherMode.CBC;
+            switch (this.encryptorProvider)
+            {
+                case EncryptorProvider.Rijndael:
+                    this.algorithm = new RijndaelManaged();
+                    break;
+                case EncryptorProvider.RC2:
+                    this.algorithm = new RC2CryptoServiceProvider();
+                    break;
+                case EncryptorProvider.DES:
+                    this.algorithm = new DESCryptoServiceProvider();
+                    break;
+                case EncryptorProvider.TripleDES:
+                    this.algorithm = new TripleDESCryptoServiceProvider();
+                    break;
+            }
+        }
+
         /// <summary>Symetric algorithm vector initalizator.</summary>
         private void SetInitVector() {
             switch (this.encryptorProvider) {
@@ -61,38 +85,14 @@ namespace EnKryptonite
         #region =================== CONSTRUCTORS ========================
         /// <summary>Default constructor with standard cryptography type (Rijndael).</summary>
         /// <param name="secretKey">Secret key.</param>
-        public Encryptor(string secretKey) {
-            this.key = secretKey;
-            this.algorithm = new RijndaelManaged();
-            this.algorithm.Mode = CipherMode.CBC;
-            this.encryptorProvider = EncryptorProvider.Rijndael;
-        }
+        public Encryptor(string secretKey) => EncryptorConstructor(secretKey, EncryptorProvider.Rijndael);
+        
 
         /// <summary>Constructor with provided cryptography type.</summary>
         /// <param name="secretKey">Secret key.</param>
         /// <param name="cryptProvider">Cryptography type.</param>
-        public Encryptor(string secretKey, EncryptorProvider _cryptProvider) {
-
-            this.key = secretKey;
-            this.encryptorProvider = _cryptProvider;
-
-            switch (this.encryptorProvider) {
-                case EncryptorProvider.Rijndael:
-                    this.algorithm = new RijndaelManaged();
-                    break;
-                case EncryptorProvider.RC2:
-                    this.algorithm = new RC2CryptoServiceProvider();
-                    break;
-                case EncryptorProvider.DES:
-                    this.algorithm = new DESCryptoServiceProvider();
-                    break;
-                case EncryptorProvider.TripleDES:
-                    this.algorithm = new TripleDESCryptoServiceProvider();
-                    break;
-            }
-
-            this.algorithm.Mode = CipherMode.CBC;
-        }
+        public Encryptor(string secretKey, EncryptorProvider _cryptProvider) => EncryptorConstructor(secretKey, _cryptProvider);
+        
         #endregion ================================================================
 
 
@@ -102,7 +102,7 @@ namespace EnKryptonite
         /// <summary>Encrypts the data.</summary>
         /// <param name="plainText">Text to be encrypted.</param>
         /// <returns>Encrypted text.</returns>
-        public virtual string Encrypt(string text) {
+        public string Encrypt(string text) {
             
             byte[] plainByte = Encoding.UTF8.GetBytes(text);
             byte[] keyByte = GetSanatizedKey();
@@ -130,7 +130,7 @@ namespace EnKryptonite
         /// <summary>Decrypts the data.</summary>
         /// <param name="text">Text to be decrypted.</param>
         /// <returns>Decrypted text.</returns>
-        public virtual string Decrypt(string text) {
+        public string Decrypt(string text) {
             
             // Converts the 64 base string into a bytes array
             byte[] cryptoByte = Convert.FromBase64String(text);
