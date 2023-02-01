@@ -1,7 +1,7 @@
-# EnKryptonite 
+﻿# EnKryptonite 💎
 ## 1. [Download](https://github.com/dieg0hartmann/EnKryptonite/raw/main/bin/Debug/EnKryptonite.dll) the .dll
 1. C# library to easy encryptation and decryptation of text.
-2. This lib was created through reference from this EVERTON JOS� BENEDICTO's [article](http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx)
+2. This lib was created through reference from this EVERTON JOSÉ BENEDICTO's [article](http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx)
 3. Just two methods to Encrypt() and Decrypt() the parameter text, returning it modified.
 4. Choose between Rijndael, RC2, DES and TripleDES encryptor providers right on constructor method.
 5. Use the same secret key to convert the texts properly. It is easier when you use the same instance to encrypt AND decrypt.
