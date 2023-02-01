@@ -6,24 +6,21 @@ using System.IO;
 namespace EnKryptonite
 {
 
-    // [TUTORIAL REFERENCE: Everton José Benedicto ->  http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx]
+    // I got reference from Everton JOSÉ BENEDICTO and his article on http://www.linhadecodigo.com.br/artigo/3078/criptografando-dados-com-csharp.aspx
     
     public class Encryptor {
 
-
         #region =================== PRIVATE FILEDS ====================
-        private string key = string.Empty;
-        private EncryptorProvider cryptProvider;
         private SymmetricAlgorithm algorithm;
+        private EncryptorProvider encryptorProvider;
+        private string key = string.Empty;
         #endregion ====================================================
-
-
 
 
         #region =================== PRIVATE METHODS ===================
         /// <summary>Symetric algorithm vector initalizator.</summary>
-        private void SetIV() {
-            switch (this.cryptProvider) {
+        private void SetInitVector() {
+            switch (this.encryptorProvider) {
                 case EncryptorProvider.Rijndael:
                     this.algorithm.IV = new byte[] { 0xf, 0x6f, 0x13, 0x2e, 0x35, 0xc2, 0xcd, 0xf9, 0x5, 0x46, 0x9c, 0xea, 0xa8, 0x4b, 0x73, 0xcc };
                     break;
@@ -61,8 +58,6 @@ namespace EnKryptonite
         #endregion ====================================================
 
 
-
-
         #region =================== CONSTRUCTORS ========================
         /// <summary>Default constructor with standard cryptography type (Rijndael).</summary>
         /// <param name="secretKey">Secret key.</param>
@@ -70,7 +65,7 @@ namespace EnKryptonite
             this.key = secretKey;
             this.algorithm = new RijndaelManaged();
             this.algorithm.Mode = CipherMode.CBC;
-            this.cryptProvider = EncryptorProvider.Rijndael;
+            this.encryptorProvider = EncryptorProvider.Rijndael;
         }
 
         /// <summary>Constructor with provided cryptography type.</summary>
@@ -79,9 +74,9 @@ namespace EnKryptonite
         public Encryptor(string secretKey, EncryptorProvider _cryptProvider) {
 
             this.key = secretKey;
-            this.cryptProvider = _cryptProvider;
+            this.encryptorProvider = _cryptProvider;
 
-            switch (this.cryptProvider) {
+            switch (this.encryptorProvider) {
                 case EncryptorProvider.Rijndael:
                     this.algorithm = new RijndaelManaged();
                     break;
@@ -101,10 +96,6 @@ namespace EnKryptonite
         #endregion ================================================================
 
 
-
-
-
-
         #region  ================== PUBLIC METHODS ================================
 
 
@@ -117,7 +108,7 @@ namespace EnKryptonite
             byte[] keyByte = GetSanatizedKey();
             
             this.algorithm.Key = keyByte;
-            SetIV();
+            SetInitVector();
 
             // Crypt interface / Creates crypt object
             ICryptoTransform cryptoTransform = this.algorithm.CreateEncryptor();
@@ -146,7 +137,7 @@ namespace EnKryptonite
             byte[] keyByte = GetSanatizedKey();
 
             this.algorithm.Key = keyByte;
-            SetIV();
+            SetInitVector();
 
             // Crypt interface / Creates crypt object
             ICryptoTransform cryptoTransform = this.algorithm.CreateDecryptor();
