@@ -13,8 +13,7 @@ using EnKryptonite;
 
 ## 3. Encryptor type
 The encryptor is the object that will store the secret key and the desired encryptor provider. 
-It is a virtual file that can be edited before being really created into your local machine.
-- Create the blueprint of the file using the FileBlueprint constructor. 
+- Create the encryotor using the Encryptor constructor. 
 ```cs
 Encryptor encr = new Encryptor("MySecretKey", EncryptorProvider.RC2);
 ```
