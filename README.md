@@ -17,7 +17,7 @@ The encryptor is the object that will store the secret key and the desired encry
 ```cs
 Encryptor encr = new Encryptor("MySecretKey", EncryptorProvider.RC2);
 ```
-- You can leave the second parameter empty to implicity choose ```cs EncryptorProvider.Rijndael```.
+- You can leave the second parameter empty to implicity choose ```EncryptorProvider.Rijndael```.
 ```cs
 Encryptor encr = new Encryptor("MySecretKey");
 ```
@@ -29,7 +29,7 @@ Encrypt and decrypt any text just calling these two functions.
 string encrypted = encr.Encrypt("This is a normal text");
 Console.Write(encrypted); // -> "D1qMx3Ka/nql9Xu2gWKN6spW3py7OdzUytPvyCby7eE="
 ```
--Decrypt
+- Decrypt
 ```cs
 string decrypted = encr.Decrypt(encrypted);
 Console.Write(decrypted); // -> "This is a normal text"
