@@ -13,7 +13,7 @@ using EnKryptonite;
 
 ## 3. Encryptor type
 The encryptor is the object that will store the secret key and the desired encryptor provider. 
-- Create the encryotor using the Encryptor constructor. 
+- Create the encryptor using the Encryptor constructor. 
 ```cs
 Encryptor encr = new Encryptor("MySecretKey", EncryptorProvider.RC2);
 ```
